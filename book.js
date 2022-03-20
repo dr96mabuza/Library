@@ -51,8 +51,17 @@ function findBook() {
         container.appendChild(div3);
 
         //read or not read button
-        const Radio = document.createElement('div');
-        Radio.textContent = 'You have ' + myLibrary[i].read + ' this book.';
+        const Radio = document.createElement('button');
+        Radio.textContent = myLibrary[i].read;
+        Radio.addEventListener('click', () => {
+            if(Radio.textContent === 'read') {
+                myLibrary[i].read = 'not read';
+                Radio.textContent = 'not read';
+            } else if(Radio.textContent === 'not read') {
+                myLibrary[i].read = 'read';
+                Radio.textContent = 'read';
+            }
+        });
         container.appendChild(Radio); 
 
         //set removal button for every book
