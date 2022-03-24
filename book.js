@@ -1,19 +1,21 @@
 let myLibrary = [];
 
-function Book(name, author, numPages, read) {
-    this.name = name
-    this.author = author
-    this.numPages = numPages
-    this.read = read
+class Book {
+    constractor (name, author, numPages, read) {
+        this.name = name;
+        this.author = author
+        this.numPages = numPages
+        this.read = read
+    }
 }
 
-function addBookToLibrary(arg1, arg2, arg3, arg4) {
-    const book = Object.create(Book.prototype);
+function addBookToLibrary(name, author, numPages, read) {
+    const book = new Book(name, author, numPages, read);
 
-    book.name = arg1;
-    book.author = arg2;
-    book.numPages = Number(arg3);
-    book.read = arg4;
+    book.name = name;
+    book.author = author;
+    book.numPages = Number(numPages);
+    book.read = read;
 
     myLibrary.push(book);
 }
