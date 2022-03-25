@@ -25,6 +25,11 @@ function findBook() {
     const list = document.querySelector('.list');
     const box = document.createElement('div'); /*removable container to hold books*/
     box.setAttribute('id', 'box');
+    box.style.display = 'grid';
+    box.style.width = '660px';
+    box.style.gap = '10px';
+    box.style.gridTemplateColumns = 'repeat(auto-fit, minmax(230px, 30%))';
+    box.style.margin = '30px 20px';
     list.appendChild(box);
 
     for (let i = 0; i < myLibrary.length; i++) {
@@ -33,35 +38,47 @@ function findBook() {
         const container = document.createElement('div');
         container.setAttribute('id', 'list-container');
         container.setAttribute('class', 'list-container');
-        container.style.margin = '10px';
-        container.style.display = 'grid';
-        container.style.border = '2px solid #d3dbe8';
-        container.style.padding = '5px';
+        container.style.display = 'flex';
+        container.style.flexDirection = 'column';
+        container.style.alignItems = 'center';
+        container.style.justifyContent = 'center';
+        container.style.width = '220px';
+        container.style.padding = '15px 5px';
+        container.style.border = '1px solid #ff3b3f';
+        container.style.borderRadius = '1px 10px';
+        container.style.gap = '5px';
+        container.style.backgroundColor = 'white';
         box.appendChild(container);
         
         //creates new divs for each line
         const div = document.createElement('div');
-        div.textContent = 'Book Name: ' + myLibrary[i].name;
+        div.textContent = 'Book: ' + myLibrary[i].name;
         container.appendChild(div);
 
         const div2 = document.createElement('div');
-        div2.textContent = 'Author Name: ' + myLibrary[i].author;
+        div2.textContent = 'Author: ' + myLibrary[i].author;
         container.appendChild(div2);
 
         const div3 = document.createElement('div');
-        div3.textContent = 'Number of pages: ' + myLibrary[i].numPages;
+        div3.textContent = 'pages # ' + myLibrary[i].numPages;
         container.appendChild(div3);
 
         //read or not read button
         const Radio = document.createElement('button');
         Radio.textContent = myLibrary[i].read;
+        Radio.style.backgroundColor = 'green';
+        Radio.style.color = 'white';
+        Radio.style.width = '143px';
         Radio.addEventListener('click', () => {
             if(Radio.textContent === 'read') {
                 myLibrary[i].read = 'not read';
                 Radio.textContent = 'not read';
+                Radio.style.backgroundColor = '#ff3b3f';
+                
             } else if(Radio.textContent === 'not read') {
                 myLibrary[i].read = 'read';
                 Radio.textContent = 'read';
+                Radio.style.backgroundColor = 'green';
             }
         });
         container.appendChild(Radio); 
@@ -69,6 +86,8 @@ function findBook() {
         //set removal button for every book
         const DeleteBtn = document.createElement('button');
         DeleteBtn.textContent = 'Remove book';
+        DeleteBtn.style.backgroundColor = '#ff3b3f';
+        DeleteBtn.style.color = 'white';
         DeleteBtn.addEventListener('click', () => {
             myLibrary.splice(i,1);
             container.remove();
