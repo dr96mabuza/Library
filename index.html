@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project: Library</title>
-    <link rel="stylesheet" href="./style.css">
-    
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <div class="header">Library</div>
 
     <!--modal form-->
     <button id="myBtn">Add Book</button>
     <div id="myModal" class="modal">
-        <form id="form" class="myModal-content" action="example.com/" method="post">
-            <span class="close">&times;</span>
-            <div class="form-row">
-                <label for="book-name">Title</label>
-                <input type="text" name="book-name" id="book-name" minlength="2" required>
-            </div>
-            <div class="form-row">
-                <label for="book-author">Author</label>
-                <input type="text" name="book-author" id="book-author" required>
-            </div>
-            <div class="form-row">
-                <label for="book-pages">Number of pages</label>
-                <input type="number" name="book-pages" id="book-pages"  min="1" required>
-            </div>
-            <div class="form-row">
-                <p>Have you read the book?</p>
-                <span>
-                    <input type="radio" name="status" id="status" value="read">
-                    <label for="status">Read</label>
-                </span>
-                <span>
-                    <input type="radio" name="status" id="status" value="not read">
-                    <label for="status">Not read</label>
-                </span>
-            </div>
-            <button id="submit" type="submit">Submit</button>
-        </form>
+      <form
+        id="form"
+        class="myModal-content"
+        action="example.com/"
+        method="post"
+      >
+        <span class="close">&times;</span>
+        <div class="form-row">
+          <label for="book-name">Title</label>
+          <input
+            type="text"
+            name="book-name"
+            id="book-name"
+            minlength="2"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label for="book-author">Author</label>
+          <input type="text" name="book-author" id="book-author" required />
+        </div>
+        <div class="form-row">
+          <label for="book-pages">Number of pages</label>
+          <input
+            type="number"
+            name="book-pages"
+            id="book-pages"
+            min="10"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <p>Have you read the book?</p>
+          <span>
+            <input type="radio" name="status" id="status" value="read" />
+            <label for="status">Read</label>
+          </span>
+          <span>
+            <input type="radio" name="status" id="status" value="not read" />
+            <label for="status">Not read</label>
+          </span>
+        </div>
+        <button id="submit" type="submit">Submit</button>
+      </form>
     </div>
 
     <div class="list"></div>
     <div class="footer">Dr Mabuza &copy 2022</div>
     <script src="./book.js"></script>
-</body>
+  </body>
 </html>
